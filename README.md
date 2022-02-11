@@ -3,7 +3,8 @@ This project showcases the use of Angular 12 in combination with Ionic 6. The go
 It showcases a simple gallery app that can take and store pictures accross all the mentioned platforms. 
 
 # Demo
-Try it out for yourself at https://gitlab.com/frankhartman/angular-ionic
+Try it out for yourself at https://frankhartman.gitlab.io/angular-ionic/
+Screenshot of the App:
 ![app_screenshot.png](./app_screenshot.png)
 
 # Run web version locally
