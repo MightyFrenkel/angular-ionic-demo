@@ -1,0 +1,6 @@
+{
+	"appId": "frank.hartman.angular-ionic-demo",
+	"appName": "Angular-ionic-demo",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

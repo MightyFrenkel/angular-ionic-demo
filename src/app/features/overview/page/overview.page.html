@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div class=" max-w-4xl mx-auto pt-8">
+    <div class="mb-2">
+      <ion-button (click)="loadRandomPhoto()" color="light">Load random photo</ion-button>
+    <ion-button *ngIf="getPhotos().length > 0" (click)="clearGallery()" color="danger">Clear Photos</ion-button>
+    </div>
+  
+    <p *ngIf="getPhotos().length <= 0;else elseBlock" class=" text-center">Load some pictures to fill this gallery</p>
+    <ng-template #elseBlock>
+      <div class="grid grid-cols-3 gap-2">
+        <div *ngFor="let photo of getPhotos(); index as position">
+          <ion-img (click)="selectPhoto(photo)"
+            class="object-cover object-center w-full h-48 hover:object-scale-down rounded transform hover:scale-105 duration-150"
+            [src]="photo.data"> </ion-img>
+        </div>
+      </div>
+    </ng-template>
+    <div *ngIf="selectedPhoto?.data" (click)="selectedPhoto = null"
+      class="fixed max-w-4xl top-0 w-screen h-full mx-auto bg-black bg-opacity-50 flex justify-center items-center cursor-pointer">
+      <ion-img class="" [src]="selectedPhoto.data"> </ion-img>
+    </div>
+  </div>
+</ion-content>
