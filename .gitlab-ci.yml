@@ -1,10 +1,3 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 image: node:14.17.5
 
 stages:
@@ -12,9 +5,7 @@ stages:
 - deploy
 
 build prod:  
-   stage: build  
-   #only:    
-   #   - tags  
+   stage: build
    script:
       - npm install -g @angular/cli@13.0.4
       - npm install  
@@ -35,7 +26,7 @@ pages: # the job must be named pages
       - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   artifacts:
     paths:
-      - public # artifact path must be /public for GitLab Pages to pick it up
+      - public
   only:
-      - main
+      - master
 
